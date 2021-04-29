@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/alert.css">
+    <script src="/js/all.js"></script> <!--FontAweson icons-->
+    <title>Foro ITLA</title>
+</head>
+<body id="body">
+    <% if (crear) { %>
+        <button class="btn btn-blue crear">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            <span>Crear</span>
+        </button>
+    <% } %>
+    <% if (!(nav == "logo")) { %>
+        <div class="sidebar">
+            <% if (user) { %>
+                <div class="sidebar-user-info row">
+                    <div class="col-2">
+                        <a href="/profile/">
+                            <% if (user.image.lenght > 0) { %>
+                                <img class="rounded-circle" src="/img/<%= user.image %>" height="48px" alt="">
+                            <% } else { %>
+                                <img class="rounded-circle" src="http://via.placeholder.com/50.png" height="48px" alt="">
+                            <% } %>
+                        </a>    
+                    </div>
+                    <div class="ml-2 pr-0 col-9">
+                        <a href="/profile/" class="sidebar-user font-weight-bold">
+                            <%= user.name %> <%= user.lastname %> 
+                        </a>
+                        <span class="range"><%= user.range %></span>
+                    </div>
+                </div>
+            <% } %>
+            <div class="sidebar-links">
+                <ul>
+                    <% if (user) { %>
+                        <li>
+                            <a href="/">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="/profile">Perfil</a>
+                        </li>
+                        <li>
+                            <a href="/logout">Cerrar sesión</a>
+                        </li>
+                    <% } else { %>
+                        <li>
+                            <a href="/sign">Iniciar sesión</a>
+                        </li>
+                        <li>
+                            <a href="/sign">Registrar</a>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    <% }%>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black row p-2 pr-4 pl-4">
+        <% if (nav == "logo") { %>
+            <div class="col-12 text-center">
+                <a class="navbar-logo" href="/">
+                    <img src="/img/minibrand.png" height="55" alt="">
+                </a>
+            </div>
+        <% } else if (nav == "goback") { %>
+            <div class="col-4 text-left">
+                <button class="navbar-toggler d-lg-none" id="goback" type="button">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="col-4 text-center">
+                <a class="navbar-logo" href="/">
+                    <img src="/img/minibrand.png" height="55" alt="">
+                </a>
+            </div>
+            <div class="col-4 text-right">
+                <button class="navbar-toggler d-lg-none" id="navbar-btn" type="button">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        <% } else { %>
+            <div class="col-6 text-left">
+                <a class="navbar-logo" href="/">
+                    <img src="/img/brand.png" height="60" alt="">
+                </a>
+            </div>
+            <div class="col-6 text-right">
+                <button class="navbar-toggler d-lg-none" id="navbar-btn" type="button">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        <% } %> 
+    </nav>
+    
+    <div class="main" style="height: 500px;">
+        <%- body %>
+    </div>
+
+
+    <!--BOOTSTRAP JAVASCRIPT-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/range.js"></script>
+    <script src="/js/goback.js"></script>
+    <script src="/js/sign.js"></script>
+    <script src="/js/crear.js"></script>
+    <script src="/js/change.js"></script>
+</body>
+</html>

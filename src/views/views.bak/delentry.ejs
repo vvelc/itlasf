@@ -1,0 +1,51 @@
+<% layout('layouts/main.ejs') %>
+
+<style>
+    .container {
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .box {
+        padding: 4rem 4rem;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        background-color: white;
+        transform: translateY(-3rem);
+    }
+
+    .box h5 {
+        text-align: center;
+    }
+    .btn {
+        border-radius: 20px;
+    }
+</style>
+
+<div class="container">
+    <div class="box p-2 pt-4 pb-4 p-md-4 text-center">
+        <% if (user.email == ent.author) { %>
+            <form action="/delentry/<%= ent._id %> " method="POST">
+                <div class="mb-3">
+                    <h4 class="d-none d-md-block">¿Estás seguro de que quieres borrar esta entrada?</h4>
+                    <h5 class="d-block d-md-none">¿Estás seguro de que quieres borrar esta entrada?</h5>
+                </div>
+                <div>
+                    <a class="btn btn-grey col col-4">
+                        <span class="font-weight-bold">Atrás</span>
+                    </a>
+                    <button type="submit" class="btn btn-danger col col-7">Eliminar entrada</button>
+                </div>
+            </form>
+        <% } else {%>
+            <div class="mb-3">
+                <h4 class="d-none d-md-block">Esta entrada no te pertenece</h4>
+                <h5 class="d-block d-md-none">Esta entrada no te pertenece</h5>
+            </div>
+            <div>
+                <a href="/" class="btn btn-block btn-grey">Volver a inicio</a>
+            </div>
+        <% } %>
+    </div>
+</div>

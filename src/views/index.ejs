@@ -1,0 +1,37 @@
+<% layout('layouts/main.ejs') %> 
+
+<div class="container pt-3">
+    <span><span class="text-blue change mr-2"><u>Explorar</u></span><span class="change">Nuevos</span></span>
+    <div class="wide">
+        <div class="main-col" id="m1">
+            <% entries.forEach(entry => { %>
+                <hr>
+                <div>
+                    <a class="entry-title h5" href="/entry/<%= entry._id %>"><%= entry.title %></a>
+                    <p class="entry-content fs-small mb-1"><%= entry.content.slice(0,50) %>...</p>
+                    <span class="category mr-2 mb-5">
+                        <%= entry.category %> 
+                    </span>
+                    <span>
+                        <%= entry.date %> 
+                    </span>
+                </div>
+            <% }) %>
+        </div>
+        <div class="main-col" id="m2">
+            <% nentries.forEach(nentry => { %>
+                <hr>
+                <div>
+                    <a class="entry-title h5" href="/entry/<%= nentry._id %>"><%= nentry.title %></a>
+                    <p class="entry-content fs-small mb-1"><%= nentry.content.slice(0,50) %>...</p>
+                    <span class="category mr-2 mb-5">
+                        <%= nentry.category %> 
+                    </span>
+                    <span>
+                        <%= nentry.date %> 
+                    </span>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<% layout('layouts/main.ejs') %>
+
+<div class="container p-4 text-center">
+    <% if (error) { %>
+        <h4>Error en la verificación</h4>
+        <div class="text-left p-2">
+            <p>
+                El codigo de verificación introducido no es válido
+            </p>
+
+            <a type="button" href="/sign" class="btn btn-block btn-blue mt-3 mb-3">Volver a inicio de sesión</a>
+        </div>
+    <% } else { %>
+        <h4>¡Bienvenido/a, <%= user.name %> <%= user.lastname %>!</h4>
+        <div class="text-left p-2">
+            <p>
+                Gracias por verificar tu cuenta. Esperamos que disfrutes de esta comunidad
+                de estudiantes del ITLA. 
+            </p>
+
+            <a type="button" href="/" class="btn btn-block btn-blue mt-3 mb-3">Ir a inicio</a>
+        </div>
+    <% } %>
+</div>

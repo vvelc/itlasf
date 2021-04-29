@@ -1,0 +1,19 @@
+<% layout('layouts/sign.ejs') %>
+<form action="/signin" method="POST">
+    <div class="tab">
+        <a class="tab-item actual" id="login" href="/signin"><span>Iniciar sesión</span></a>
+        <a class="tab-item" id="register" href="/signup"><span>Registrar</span></a>
+    </div>
+    <div class="form-group">
+        <input type="email" required="required" name="email" autocapitalize="off"/>
+        <label for="input" class="control-label">Correo electrónico</label><i class="bar"></i>
+    </div>
+    <div class="form-group">
+        <input type="password" required="required" name="password"/>
+        <label for="input" class="control-label">Contraseña</label><i class="bar"></i>
+    </div>
+    <div class="form-buttons">
+        <a type="button" class="btn btn-grey btn-round logreg-btn" href="/">Atrás</a>
+        <button class="btn btn-blue btn-round logreg-btn">Acceder</button>
+    </div>
+</form>

@@ -1,0 +1,38 @@
+<% layout('layouts/sign.ejs') %> 
+<form action="/signup" method="POST" onsubmit="return validateForm()">
+    <div class="tab">
+        <a class="tab-item" id="login" href="/signin"><span>Iniciar sesión</span></a>
+        <a class="tab-item actual" id="register" href="/signup"><span>Registrar</span></a>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-6 pr-1">
+                <input type="text" required="required" name="name" autocapitalize="off" id="name"/>
+                <label for="input" class="control-label col-6">Nombre</label><i class="bar"></i>
+            </div>
+            <div class="col-6 pl-1">
+                <input type="text" required="required" name="lastname" autocapitalize="off" id="lastname"/>
+                <label for="input" class="control-label col-6">Apellido</label><i class="bar"></i>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="email" required="required" name="email" autocapitalize="off" id="email"/>
+        <label for="input" class="control-label">Correo electrónico</label><i class="bar"></i>
+        <small class="signup-rule">Correo institucional</small>
+    </div>
+    <div class="form-group">
+        <input type="password" required="required" name="password" id="password1"/>
+        <label for="input" class="control-label">Contraseña</label><i class="bar"></i>
+        <small class="signup-rule">No uses la de tu correo institucional</small>
+    </div>
+    <div class="form-group">
+        <input type="password" required="required" id="password2" autocomplete="off"/>
+        <label for="input" class="control-label">Confirmar contraseña</label><i class="bar"></i>
+    </div>
+    <div class="form-buttons">
+        <a type="button" class="btn btn-grey btn-round logreg-btn" href="/">Atrás</a>
+        <button class="btn btn-blue btn-round logreg-btn">Registrar</button>
+    </div>
+</form>
+<script src="/js/signup.js"></script>

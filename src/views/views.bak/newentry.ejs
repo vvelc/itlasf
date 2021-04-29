@@ -1,0 +1,75 @@
+<% layout('layouts/main.ejs') %>
+<style>
+    input, textarea, select, form button {
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        padding: 5px 15px;
+        font-size: 16px;
+        width: 100%;
+        border-radius: 25px;
+    }
+
+    select {
+        border-radius: 10px;
+    }
+
+    textarea {
+        padding: 20px 20px;
+    }
+
+    input:focus, textarea:focus, select:focus{
+        outline: none !important;
+        border: none;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+</style>
+<h1 class="mt-4">Nueva entrada</h1>
+<!--<h5 class="mt-2">Bienvenido, <%= user.email %> </h4>-->
+    
+<form action="/newentry" method="POST">   
+    <div class="container mt-4">
+        <div class="row">
+            <div class="mb-1 col-md-6 col-12">
+                <div class="mb-2">
+                    <label>Titulo</label><br>
+                    <input type="text" name="title" required="required"><br>
+                </div>
+            </div>
+            <div class="mb-2 col-md-6 col-12">
+                <label>Categoría</label>
+                <select name="category" id="category">
+                    <option value="Problema Técnico" selected="selected">Problema Técnico</option>
+                    <option value="Institucional">Institucional</option>
+                    <option value="Tarea">Tarea</option>
+                </select>
+            </div>
+        </div>
+        <div class="mb-2">
+            <label>Contenido</label><br>
+            <textarea name="content" id="" rows="10" required="required"></textarea><br>
+        </div>
+        <div class="row">
+            <div class="mb-2 col-12">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+            <input type="text" name="date" id="date" hidden>
+            <input type="text" name="author" id="author" hidden>
+        </div>
+    </div>
+</form>
+
+<script>
+    let d = new Date();
+    let date = document.getElementById("date")
+    let author = document.getElementById("author")
+
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+    
+    today = dd + '/' + mm + '/' + yyyy;
+
+    date.value = today;
+    author.value = "<%- user.email %>";
+</script>

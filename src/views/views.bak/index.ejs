@@ -1,0 +1,53 @@
+<% layout('layouts/main.ejs') %> 
+
+<h1 class="mt-4">Publicaciones</h1>
+
+<div class="container">
+    <% entries.forEach(entry => { %>
+        <hr>
+        <div>
+            <a class="entry-title h5" href="/entry/<%= entry._id %>"><%= entry.title %></a>
+            <p class="entry-content fs-small mb-1"><%= entry.content.slice(0,50) %>...</p>
+            <span class="category mr-2 mb-5">
+                <%= entry.category %> 
+            </span>
+            <span>
+                <%= entry.date %> 
+            </span>
+        </div>
+    <% }) %>
+</div>
+
+
+
+<div class="dropdown open">
+    <button class="algo" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+                <div class="test1"></div>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="triggerId">
+        <button class="dropdown-item" href="#">Action</button>
+        <button class="dropdown-item disabled" href="#">Disabled action</button>
+    </div>
+</div>
+
+
+<style>
+    .algo {
+        position: relative;
+        height: 2rem;
+        width: 4rem;
+        background-color: transparent;
+        border: none;
+    }
+    .test1:before {
+        position: absolute;
+        content: '\2807';
+        font-size: 3em;
+        color: #333;
+        transform: translate(50%, -15%) rotate(90deg);
+        top: 0;
+        left: 0;
+        
+      }
+</style>

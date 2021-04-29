@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+
+/* HTML TAGS */
+html {
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif !important;
+    color: white;
+    background-color: #002d33;
+}
+
+p {
+    font-family: inherit;
+    margin: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* BUTTON BLUE CLASS */
+
+.btn-blue {
+    background-color: #00ffff;
+    color: white;
+    border-radius: 50px;
+    font-weight: bolder;
+    font-size: 1rem;
+}
+
+button:disabled {
+    color: white !important;
+    font-weight: bolder;
+    font-size: 1rem;
+}
+
+.btn-blue:focus {
+    background-color: #00dddd;
+    color: white;
+}
+
+/* BUTTON CREAR */
+
+button.crear {
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 25px;
+    font-size: 1.5rem;
+}
+
+button.crear .fa-plus {
+    line-height: inherit;
+    margin-right: 10px;
+}
+
+button.crear span {
+    line-height: 1.5rem;
+}
+
+/* TEXT BLUE CLASS */
+
+span.text-blue {
+    color: #00ffff;
+}
+
+a.sidebar-user:focus,
+a.sidebar-user:hover{
+    color: #dddddd;
+    text-decoration: none;
+}
+
+.sidebar-links a:focus,
+.sidebar-links a:hover{
+    color: white;
+    text-decoration: none;
+    background-color: #00323a;
+}
+
+/* NAVBAR BRAND */
+
+.navbar-brand {
+    display: flex;
+    justify-self: center;
+}
+
+/* NAVBAR BUTTON*/
+
+
+button#navbar-btn {
+    color: white;
+    font-size: 2rem;
+}
+
+button#goback {
+    color: white;
+    font-size: 3rem;
+}
+
+
+/* SIDEBAR CLASSES*/
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 100%;
+    width: 78%;
+    background-color: #003d46;
+    top: 0;
+    right: -78%;
+    z-index: 55;
+    transition: right 0.4s ease 0s;
+}
+
+.sidebar-user-info {
+    padding: 20px;
+}
+
+.sidebar-links ul {
+    padding: 0;
+}
+
+.sidebar-links li {
+    list-style-type:none;
+}
+
+.sidebar-links a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1rem 20px;
+    font-size: 1rem;
+}
+
+.sidebar-icon {
+    font-size: 30px;
+    color: white;
+}
+
+.sidebar-show {
+    right: 0;
+}
+
+/* RANGE */
+.range {
+    display: flex;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: aqua;
+    color: #002d33;
+    width: max-content;
+    padding: 2px 5px;
+    line-height: 15px;
+    border-radius: 20px;
+}
+
+.range.light {
+    color: white;
+}
+
+.range.dark {
+    color: #002d33;
+}
+
+/* LOGIN AND REGISTER */
+
+.sign-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    height: 80vh;
+    width: 100%;
+}
+
+.sign-box form {
+    width: 100%;
+}
+
+.sign-box input,
+.sign-box select {
+    width: 100%;
+    background-color: #002226;
+    -webkit-box-shadow: 0 0 0 30px #002226 inset !important;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: white !important;
+    text-decoration: none;
+    text-align-last: center;
+    width: 100%;
+    transition: border 0.2 ease 0s;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 30px #002226 inset !important;
+  -webkit-text-fill-color: white;
+  color: white !important;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    outline: 0;
+    background-color: #002226;
+    transition: color 0.3s ease 0s;
+}
+
+::placeholder {
+    color: white !important;
+}
+
+.form-control:focus::placeholder {
+    color: #dddddd !important;
+}
+
+.wide {
+    height: 90vh;
+    width: 200vw;
+    position: absolute;
+    bottom: 0;
+    transform: translateX(0%);
+    transition: transform 0.5s ease 0s;
+}
+
+.wide.translateX {
+    transform: translateX(-50%);
+}
+
+.main-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100vw;
+    margin: 0;
+    border: none;
+    float: left;
+}

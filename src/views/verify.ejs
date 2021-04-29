@@ -1,0 +1,19 @@
+<% layout('layouts/main.ejs') %>
+
+<div class="container p-4 text-center">
+    <h4>Verifica tu identidad</h4>
+    <div class="text-left p-2">
+        <p>
+            ITLA SF requiere verificar tu cuenta para poder disfrutar de la aplicación. <br>
+            Por favor, haz clic en el siguiente botón para enviar el enlace de verificación a tu
+            correo institucional.
+        </p>
+        <% if (enviado) { %>
+            <button class="btn btn-block btn-dark mt-3 mb-3" disabled>El enlace ha sido enviado</button>
+        <% } else { %>
+            <form action="/verify" method="POST">
+                <button class="btn btn-block btn-blue mt-3 mb-3">Enviar enlace</button>
+            </form>
+        <% } %> 
+    </div>
+</div>

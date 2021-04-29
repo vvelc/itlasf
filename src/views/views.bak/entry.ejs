@@ -1,0 +1,86 @@
+<% layout('layouts/main.ejs') %>
+
+<style>
+    .container.content {
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+    .container.content p {
+        margin-bottom: 0;
+    }
+
+    textarea,  form button {
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        padding: 5px 15px;
+        font-size: 16px;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    textarea {
+        padding: 20px 20px;
+    }
+
+    textarea:focus {
+        outline: none !important;
+    }
+
+    .comment-credits {
+        font-size: 13px;
+    }
+</style>
+
+<div class="mt-4 mb-4">
+    <div class="credits d-flex justify-content-between justify-content-sm-start">
+        <span class="mr-4" id="author"> <%= ent.author %> </span>
+        <span class="" id="date"><%= ent.date %></span>
+    </div>
+    <h3 class="mt-1 mb-3"> <%= ent.title %> </h3>
+    <div class="">
+        <span class="category" id="category"><%= ent.category %></span>
+        <% if (user.email == ent.author) { %>
+            <a href="/delentry/<%= ent._id %> " class="btn btn-danger btn-sm">
+                <span class="font-weight-bold">Eliminar entrada</span>
+            </a>
+        <% } %>
+    </div>
+</div>
+<div class="container content mb-4">
+    <p><%= ent.content %> </p>
+</div>
+
+<h3 class="mb-4">Respuestas</h3>
+
+<div class="container answers">
+    <% coms.forEach(com => { %>
+        <hr>
+        <span class="comment-credits"><%= com.author %> <%= com.date %> </span>
+        <p><%= com.content %> </p>
+    <% }) %>
+    <form action="/entry/<%= ent._id %>" method="post" class="mt-4 mb-4">
+        <input type="text" name="comdate" value="" id="comdate" hidden>
+        <input type="text" name="comauthor" value="" id="comauthor" hidden>
+        <textarea name="comment" id="comment" rows="8" placeholder="Escribe tu respuesta"></textarea>
+        <button class="btn btn-block btn-primary" type="submit">Añadir respuesta</button>
+    </form>
+</div>
+
+<script>
+    let d = new Date();
+    let date = document.getElementById("comdate")
+    let author = document.getElementById("comauthor")
+
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+    
+    today = dd + '/' + mm + '/' + yyyy;
+
+    date.value = today;
+    author.value = "<%- user.email %>";
+</script>
